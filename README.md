@@ -136,5 +136,5 @@ __Explanation of service mongo__
 
 ## References
 
-https://zellwk.com/blog/crud-express-mongodb/
-https://zellwk.com/blog/mongoose/
+* https://zellwk.com/blog/crud-express-mongodb/
+* https://zellwk.com/blog/mongoose/
