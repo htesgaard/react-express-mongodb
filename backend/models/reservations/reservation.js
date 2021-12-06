@@ -4,31 +4,33 @@
 const mongoose = require('mongoose');
 
 const Resrevation = mongoose.model('Reservation', {
-    clientID : {
+    ReservationID : {
         type: Number,
         unique: true,
         required: true
     },
-    firstName : {
+    clientID : {
+        type: String,
+        required: true
+    },
+    date : {
+        type: Date,
+        required: true
+    },
+    hotelName : {
         type: String,
         trim: true,
         required: true
     },
-    lastName : {
-        type: String,
-        trim: true,
+    price : {
+        type: Number,
         required: true
     },
-    streetName : {
-        type: String,
-        trim: true,
-        required: true
-    },
-    city : {
-        type: String,
-        trim: true,
+    balance : {
+        type: Number,
         required: true
     }
+
 
 });
 
