@@ -8,8 +8,7 @@ const routes = (app) => {
 
   router.post("/clients", (req, res) => {
     const client = new Client({
-      text: req.body.text,
-      clientID: req.body,
+      clientID: req.body.clientID,
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       streetName: req.body.streetName,
