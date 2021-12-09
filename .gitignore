@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 data
 frontend/node_modules
 backend/node_modules
+=======
+data/
+
+>>>>>>> refs/remotes/origin/main

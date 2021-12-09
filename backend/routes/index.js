@@ -6,6 +6,25 @@ const { Todo } = require("../models/todos/todo");
 const routes = (app) => {
   const router = express.Router();
 
+  router.post("/clients", (req, res) => {
+    const client = new Client({
+      clientID: req.body.clientID,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      streetName: req.body.streetName,
+      city: req.body.city
+    });
+
+    client
+      .save()
+      .then((result) => {
+        serverResponses.sendSuccess(res, messages.SUCCESSFUL, result);
+      })
+      .catch((e) => {
+        serverResponses.sendError(res, messages.BAD_REQUEST, e);
+      });
+  });
+
   router.post("/todos", (req, res) => {
     const todo = new Todo({
       text: req.body.text,
