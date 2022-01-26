@@ -1,0 +1,66 @@
+import React from "react";
+import axios from "axios";
+import "./App.scss";
+import AddClient from "./components/AddClient";
+import ClientList from "./components/ClientList";
+
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      clients: [],
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get("/api")
+      .then((response) => {
+        this.setState({
+          clients: response.data.data,
+        });
+      })
+      .catch((e) => console.log("Error : ", e));
+  }
+
+  handleAddClient = (value) => {
+    axios
+      .post("/api/clients", { text: value })
+      .then(() => {
+        this.setState({
+          clients: [...this.state.clients, { text: firstName }],
+        });
+      })
+      .catch((e) => console.log("Error : ", e));
+  };
+
+  handleAddClient = (value) => {
+    axios
+      .post("/api/clients", { text: value })
+      .then(() => {
+        this.setState({
+          clients: [...this.state.clients, { text: firstName }],
+        });
+      })
+      .catch((e) => console.log("Error : ", e));
+  };
+
+  render() {
+    return (
+      <div className="App container">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-xs-12 col-sm-8 col-md-8 offset-md-2">
+              <h1>Clients</h1>
+              <div className="client-app">
+                <AddClient handleAddClient={this.handleAddClient} />
+                <ClientList clients={this.state.clients} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
