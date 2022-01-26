@@ -31,4 +31,16 @@ mongoose-gen -m clients -f reservationID:number,clientID:number,date:date,hotelN
 ```
 
 
+## Start/stop application
+
+### Start
+
+`docker-compose up -d`
+
+### Stop
+
+`docker-compose stop`
+
+
+
 
